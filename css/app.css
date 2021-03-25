@@ -12,3 +12,9 @@ body {
   top: 5px;
   left: 5px;
 }
+
+#btn-change-model {
+  position: fixed;
+  right: 0;
+  top: 0;
+}

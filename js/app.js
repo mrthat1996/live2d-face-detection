@@ -37,6 +37,10 @@ function app() {
 
     // モデル用マトリクスの初期化と描画の開始
     init();
+
+    document.getElementById('btn-change-model').addEventListener('click', function (e) {
+        changeModel();
+    })
 }
 
 function initFaceApi() {
@@ -70,11 +74,12 @@ function initFaceApi() {
 }
 
 function doDrag(landmarks) {
-    let point = landmarks.positions[30];
+    let point = landmarks.positions[31];
+    let screen_ratio = displaySize.width / displaySize.height;
     let x = (point.x - displaySize.width / 2) / displaySize.width;
-    let y = (point.y - displaySize.height / 2) / displaySize.height;
-    console.log(x, y);
-    dragMgr.setPoint(x*2, y*2);
+    let y = -((point.y - displaySize.height / 2) / displaySize.height) * screen_ratio;
+    //console.log(x, y);
+    dragMgr.setPoint(x * 10, y * 15);
 }
 
 
