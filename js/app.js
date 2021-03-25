@@ -60,11 +60,11 @@ function initFaceApi() {
     })
 
     Promise.all([
-        faceapi.nets.mtcnn.loadFromUri('/models'),
-        faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-        faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-        faceapi.nets.faceExpressionNet.loadFromUri('/models')
+        faceapi.nets.mtcnn.loadFromUri('models'),
+        faceapi.nets.tinyFaceDetector.loadFromUri('models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('models'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('models'),
+        faceapi.nets.faceExpressionNet.loadFromUri('models')
     ]).then(() => {
         navigator.getUserMedia({video: {}},
             stream => webcam.srcObject = stream,
