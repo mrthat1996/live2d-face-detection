@@ -68,7 +68,7 @@ function initFaceApi() {
     ]).then(() => {
         navigator.getUserMedia({video: {}},
             stream => webcam.srcObject = stream,
-            err => console.error(err)
+            err => alert(err)
         )
     });
 }
