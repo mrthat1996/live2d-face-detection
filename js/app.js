@@ -60,11 +60,11 @@ function initFaceApi() {
     })
 
     Promise.all([
-        faceapi.nets.mtcnn.loadFromUri('models'),
+        // faceapi.nets.mtcnn.loadFromUri('models'),
         faceapi.nets.tinyFaceDetector.loadFromUri('models'),
         faceapi.nets.faceLandmark68Net.loadFromUri('models'),
-        faceapi.nets.faceRecognitionNet.loadFromUri('models'),
-        faceapi.nets.faceExpressionNet.loadFromUri('models')
+        // faceapi.nets.faceRecognitionNet.loadFromUri('models'),
+        // faceapi.nets.faceExpressionNet.loadFromUri('models')
     ]).then(() => {
         navigator.getUserMedia({video: {}},
             stream => webcam.srcObject = stream,
@@ -76,9 +76,9 @@ function initFaceApi() {
 function doDrag(landmarks) {
     let point = landmarks.positions[31];
     let screen_ratio = displaySize.width / displaySize.height;
-    let x = (point.x - displaySize.width / 2) / displaySize.width;
+    let x = -(point.x - displaySize.width / 2) / displaySize.width;
     let y = -((point.y - displaySize.height / 2) / displaySize.height) * screen_ratio;
-    //console.log(x, y);
+    console.log(x, y);
     dragMgr.setPoint(x * 10, y * 15);
 }
 
